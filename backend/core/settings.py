@@ -1,16 +1,21 @@
 from pathlib import Path
 import os
-
 from dotenv import load_dotenv
+
+# Cargar variables de entorno (.env)
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+# SEGURIDAD: Usar variable de entorno en producción
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-key')
 
-DEBUG = os.getenv('DEBUG') == 'True'
+# DEBUG debe ser False en producción
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
+# Permitir que Render y otros hosts se conecten
 ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -19,17 +24,22 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic', # Para servir estáticos en desarrollo
     'django.contrib.staticfiles',
-    # --- TUS APPS Y LIBRERÍAS ---
+    
+    # --- LIBRERÍAS ---
     'rest_framework',      # Motor para la API
-    'corsheaders',         # Permite peticiones desde React
+    'corsheaders',         # Permite peticiones desde React (Vercel)
+    
+    # --- TUS APPS ---
     'projects',            # App de proyectos
-    'contact',             # <--- ¡ESTA ES LA QUE FALTABA!
+    'contact',             # App de contacto
 ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # DEBE IR ARRIBA DE TODO
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Para archivos estáticos en Render
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -57,6 +67,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+
+# Base de datos (SQLite por defecto para tu proyecto)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -64,6 +76,8 @@ DATABASES = {
     }
 }
 
+
+# Validaciones de contraseña
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
@@ -71,29 +85,35 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
-# Configuración de idioma a Español
+
+# Internacionalización
 LANGUAGE_CODE = 'es-es'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Archivos estáticos
+
+# --- CONFIGURACIÓN DE ARCHIVOS ESTÁTICOS (CSS, JS) ---
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Almacenamiento optimizado para WhiteNoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # --- CONFIGURACIÓN DE IMÁGENES (MEDIA) ---
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# --- CONFIGURACIÓN DE CORS ---
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-]
+
+# --- CONFIGURACIÓN DE CORS (Conexión con React) ---
+# Permitir que tu Vercel y cualquier origen lea la API
+CORS_ALLOW_ALL_ORIGINS = True 
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# --- CONFIGURACIÓN DE EMAIL ---
+# --- CONFIGURACIÓN DE EMAIL (Gmail) ---
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
