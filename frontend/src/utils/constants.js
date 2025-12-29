@@ -57,46 +57,40 @@ export const LEARNING_TIMELINE = [
     },
 ];
 
+// ... (Tus otras constantes ABOUT_ME, LEARNING_TIMELINE, etc. déjalas igual)
+
 // ===============================
-// SKILLS
+// SKILLS (ACTUALIZADO: Niveles cualitativos)
 // ===============================
 export const SKILLS = [
     {
         category: "Frontend",
         items: [
-            { name: "HTML", level: 85 },
-            { name: "CSS", level: 80 },
-            { name: "JavaScript", level: 70 },
-            { name: "Bootstrap", level: 75 },
-            { name: "React", level: 70 },
-            { name: "Tailwind CSS", level: 80 },
+            { name: "CSS / Tailwind", level: "Avanzado", color: "text-emerald-400 bg-emerald-400/10" },
+            { name: "HTML", level: "Intermedio", color: "text-blue-400 bg-blue-400/10" },
+            { name: "Bootstrap", level: "Intermedio", color: "text-blue-400 bg-blue-400/10" },
+            { name: "JavaScript", level: "En aprendizaje", color: "text-yellow-400 bg-yellow-400/10" },
+            { name: "React", level: "En aprendizaje", color: "text-yellow-400 bg-yellow-400/10" },
         ],
     },
     {
         category: "Backend",
         items: [
-            { name: "Python", level: 75 },
-            { name: "Django", level: 80 },
-            { name: "Django REST Framework", level: 75 },
-            { name: "Java (Spring Boot)", level: 65 },
-            { name: "PHP", level: 65 },
-        ],
-    },
-    {
-        category: "Bases de Datos",
-        items: [
-            { name: "PostgreSQL", level: 70 },
-            { name: "MySQL", level: 70 },
-            { name: "SQLite", level: 75 },
+            { name: "MySQL / PostgreSQL", level: "Avanzado", color: "text-emerald-400 bg-emerald-400/10" },
+            { name: "Python", level: "Intermedio", color: "text-blue-400 bg-blue-400/10" },
+            { name: "PHP", level: "Intermedio", color: "text-blue-400 bg-blue-400/10" },
+            { name: "Django", level: "En aprendizaje", color: "text-yellow-400 bg-yellow-400/10" },
         ],
     },
     {
         category: "Herramientas",
         items: [
-            { name: "Git", level: 75 },
-            { name: "GitHub", level: 75 },
-            { name: "VS Code", level: 90 },
-            { name: "Postman", level: 80 },
+            { name: "VS Code", level: "Avanzado", color: "text-emerald-400 bg-emerald-400/10" },
+            { name: "Git / GitHub", level: "Intermedio", color: "text-blue-400 bg-blue-400/10" },
+            { name: "Postman", level: "Intermedio", color: "text-blue-400 bg-blue-400/10" },
         ],
     },
 ];
+
+// Soft Skills (Añádelo también si quieres tenerlo centralizado)
+export const SOFT_SKILLS = ["Autodidacta", "Resolución de Problemas", "Adaptabilidad", "Trabajo en Equipo"];

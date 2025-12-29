@@ -1,44 +1,54 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const MagneticButton = ({ children, href, onClick, className = '', primary = false }) => {
-    const ref = useRef(null);
+const MagneticButton = ({ children, href, className = '', primary = false }) => {
+    const buttonRef = useRef(null);
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
-    const handleMouse = (e) => {
-        const { clientX, clientY } = e;
-        const { width, height, left, top } = ref.current.getBoundingClientRect();
-        const x = clientX - (left + width / 2);
-        const y = clientY - (top + height / 2);
+    const handleMouseMove = (e) => {
+        if (!buttonRef.current) return;
+        const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
+        const x = (e.clientX - left - width / 2) * 0.3;
+        const y = (e.clientY - top - height / 2) * 0.3;
         setPosition({ x, y });
     };
 
-    const reset = () => {
+    const handleMouseLeave = () => {
         setPosition({ x: 0, y: 0 });
     };
 
-    const baseClasses = `px-8 py-3 rounded-full font-bold transition-all duration-300 inline-block ${className}`;
-    const variants = primary
-        ? 'bg-accent text-dark hover:bg-accent-light glow-accent'
-        : 'border border-white/20 hover:bg-white/5 hover:border-white/40';
-
-    const Component = href ? motion.a : motion.button;
-
     return (
-        <Component
-            ref={ref}
+        <motion.a
+            ref={buttonRef}
             href={href}
-            onClick={onClick}
-            className={`${baseClasses} ${variants}`}
-            onMouseMove={handleMouse}
-            onMouseLeave={reset}
-            animate={{ x: position.x * 0.3, y: position.y * 0.3 }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            animate={{ x: position.x, y: position.y }}
             transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className={`
+                relative inline-flex items-center justify-center
+                px-8 py-4 rounded-xl font-semibold text-sm
+                overflow-hidden group cursor-pointer
+                ${primary
+                    ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-slate-950 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50'
+                    : 'glass border border-white/20 text-white hover:border-emerald-500/50'
+                }
+                transition-all duration-300
+                ${className}
+            `}
         >
-            {children}
-        </Component>
+            {/* Shine effect para primary */}
+            {primary && (
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+            )}
+
+            {/* Glow effect para secondary */}
+            {!primary && (
+                <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/10 transition-colors duration-300"></div>
+            )}
+
+            <span className="relative z-10">{children}</span>
+        </motion.a>
     );
 };
 

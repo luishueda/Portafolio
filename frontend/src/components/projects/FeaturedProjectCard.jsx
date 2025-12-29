@@ -47,10 +47,10 @@ const FeaturedProjectCard = ({ project }) => {
 
                 {/* Tecnologías */}
                 <div className="flex flex-wrap gap-2 mb-5">
-                    {project.technologies.split(',').slice(0, 3).map((tech, index) => (
+                    {project.technologies.split(',').map((tech, index) => (
                         <span
                             key={index}
-                            className="px-3 py-1 text-xs font-medium rounded-lg bg-white/5 border border-white/10 text-gray-300"
+                            className="px-3 py-1 text-xs font-medium rounded-lg bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 hover:border-accent/30 transition-all cursor-default"
                         >
                             {tech.trim()}
                         </span>

@@ -28,15 +28,16 @@ const StandardProjectCard = ({ project }) => {
                     {project.description}
                 </p>
 
-                {/* Tecnologías (solo 2-3) */}
+                {/* Tecnologías - CORREGIDO: Sin límites y con animación */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.split(',').slice(0, 2).map((tech, index) => (
-                        <span
+                    {project.technologies.split(',').map((tech, index) => (
+                        <motion.span
                             key={index}
-                            className="px-2.5 py-0.5 text-xs rounded-md bg-white/5 border border-white/10 text-gray-400"
+                            whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+                            className="px-2.5 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-gray-300 cursor-default transition-colors"
                         >
                             {tech.trim()}
-                        </span>
+                        </motion.span>
                     ))}
                 </div>
 

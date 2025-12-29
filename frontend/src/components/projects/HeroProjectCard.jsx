@@ -48,9 +48,9 @@ const HeroProjectCard = ({ project }) => {
                         {project.description}
                     </p>
 
-                    {/* Tecnologías */}
+                    {/* Tecnologías - CORREGIDO: Sin límite (.slice eliminado) */}
                     <div className="flex flex-wrap gap-2 mb-8">
-                        {project.technologies.split(',').slice(0, 4).map((tech, index) => (
+                        {project.technologies.split(',').map((tech, index) => (
                             <motion.span
                                 key={index}
                                 whileHover={{ scale: 1.05, backgroundColor: 'rgba(16, 185, 129, 0.2)' }}
