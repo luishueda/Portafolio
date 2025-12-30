@@ -7,6 +7,7 @@ import FeaturedProjectCard from '../components/projects/FeaturedProjectCard';
 import StandardProjectCard from '../components/projects/StandardProjectCard';
 import About from '../components/About';
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 
 const Home = () => {
@@ -148,6 +149,10 @@ const Home = () => {
 
             {/* CONTACT SECTION */}
             <Contact />
+
+            {/* FOOTER */}
+            <Footer />
+
 
         </div>
     );

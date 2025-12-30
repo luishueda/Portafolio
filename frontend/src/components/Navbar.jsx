@@ -109,19 +109,19 @@ const Navbar = () => {
 
                             <div className="flex gap-4">
                                 <motion.a
-                                    href={PERSONAL_INFO.github}
+                                    href={PERSONAL_INFO.social.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-emerald-400"
+                                    className="text-gray-400 hover:text-emerald-400 transition-colors"
                                     whileHover={{ scale: 1.1 }}
                                 >
                                     <Github size={18} />
                                 </motion.a>
                                 <motion.a
-                                    href={PERSONAL_INFO.linkedin}
+                                    href={PERSONAL_INFO.social.linkedin}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-emerald-400"
+                                    className="text-gray-400 hover:text-emerald-400 transition-colors"
                                     whileHover={{ scale: 1.1 }}
                                 >
                                     <Linkedin size={18} />
@@ -172,8 +172,12 @@ const Navbar = () => {
                             ))}
 
                             <div className="flex gap-6 pt-4 mt-2 border-t border-white/10 w-full justify-center">
-                                <a href={PERSONAL_INFO.github} target="_blank" className="text-gray-400 hover:text-emerald-400"><Github size={22} /></a>
-                                <a href={PERSONAL_INFO.linkedin} target="_blank" className="text-gray-400 hover:text-emerald-400"><Linkedin size={22} /></a>
+                                <a href={PERSONAL_INFO.social.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                                    <Github size={22} />
+                                </a>
+                                <a href={PERSONAL_INFO.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                                    <Linkedin size={22} />
+                                </a>
                             </div>
                         </div>
                     </motion.div>

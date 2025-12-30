@@ -2,27 +2,32 @@
 // INFORMACIÓN PERSONAL
 // ===============================
 export const PERSONAL_INFO = {
-    name: "Luis",
+    name: "Luis Hueda",
     role: "Desarrollador Full Stack",
-    location: "Perú",
-    availability: "Disponible para proyectos freelance y colaboraciones",
+    description: "Apasionado por crear soluciones tecnológicas innovadoras.",
     email: "huedaluis72@gmail.com",
-    phone: "+51 993 887 382",
-    github: "https://github.com/tuusuario",
-    linkedin: "https://linkedin.com/in/tuusuario",
-    whatsapp: "51993887382",
-};
+    location: "Chiclayo, Perú",
+    availability: "Disponible para proyectos freelance y colaboraciones",
+
+    // REDES SOCIALES
+    social: {
+        github: "https://github.com/luishueda",
+        linkedin: "https://www.linkedin.com/in/luis-hueda-757139253/",
+        facebook: "https://www.facebook.com/luisalonso.jacintoueda/",
+        instagram: "https://www.instagram.com/luishueda19/",
+        tiktok: "https://www.tiktok.com/@luishueda",
+        whatsapp: "https://wa.me/51993887382"
+    }
+}; // <--- ¡AQUÍ FALTABA ESTE PUNTO Y COMA Y LA LLAVE!
 
 // ===============================
 // SOBRE MÍ
 // ===============================
 export const ABOUT_ME = {
+    // ... (El resto de tu código está bien, déjalo igual) ...
     intro: "Desarrollador Full Stack con enfoque práctico y aprendizaje constante. Desde 2023 vengo formándome en desarrollo web, iniciando con fundamentos de programación y evolucionando hacia la creación de aplicaciones completas, APIs REST y sistemas web funcionales. Actualmente desarrollo proyectos de forma independiente, combinando backend robusto y frontend moderno, priorizando siempre la lógica, la escalabilidad y la experiencia del usuario.",
-
     experience: "1 año y medio",
-
     focus: "Desarrollo de aplicaciones web completas, con énfasis en backend sólido, integración de APIs y frontend moderno orientado a soluciones reales.",
-
     learning: [
         "Diseño e implementación de APIs REST",
         "Arquitectura backend con Django",
@@ -30,6 +35,7 @@ export const ABOUT_ME = {
         "Buenas prácticas de desarrollo y control de versiones",
     ],
 };
+
 
 // ===============================
 // TIMELINE DE APRENDIZAJE
