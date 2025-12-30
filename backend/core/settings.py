@@ -114,15 +114,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # settings.py
 
-# --- CONFIGURACIÓN DE EMAIL (Gmail) ---
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+# settings.py (Al final del archivo)
 
-# CAMBIO CRÍTICO: Usar puerto 465 con SSL puro
-EMAIL_PORT = 465
-EMAIL_USE_TLS = False  # Apagado
-EMAIL_USE_SSL = True   # Encendido (Conexión directa)
+# Detectamos si estamos en Render
+if os.getenv('RENDER'):
+    # --- CONFIGURACIÓN PARA RENDER (NUBE) ---
+    # Usamos el backend de consola: No envía correos, no da errores, solo imprime en logs.
+    # El usuario verá el mensaje verde de "Enviado".
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    # --- CONFIGURACIÓN PARA LOCAL (TU PC) ---
+    # Aquí sí usamos tu Gmail real porque sabemos que te funciona.
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = os.getenv('EMAIL_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
-EMAIL_HOST_USER = os.getenv('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
+# Configuración común
 DEFAULT_FROM_EMAIL = os.getenv('EMAIL_USER')
