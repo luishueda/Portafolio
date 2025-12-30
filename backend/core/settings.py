@@ -114,11 +114,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # settings.py
 
+# --- CONFIGURACIÓN DE EMAIL (Gmail) ---
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True         # TLS debe ser True para el puerto 587
-EMAIL_USE_SSL = False        # SSL debe ser False para el puerto 587
+
+# CAMBIO CRÍTICO: Usar puerto 465 con SSL puro
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False  # Apagado
+EMAIL_USE_SSL = True   # Encendido (Conexión directa)
+
 EMAIL_HOST_USER = os.getenv('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD') # Asegúrate que en Render no tenga espacios
-DEFAULT_FROM_EMAIL = os.getenv('EMAIL_USER')      # Agrega esta línea
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_USER')
