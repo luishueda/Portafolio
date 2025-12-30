@@ -16,12 +16,14 @@ class ContactViewSet(viewsets.ModelViewSet):
 
         # Luego enviamos el correo
         try:
+           # Ejemplo de cómo debería estar en tu views.py
+        
             send_mail(
-                subject=f"Nuevo mensaje de: {instance.name}",
-                message=f"Nombre: {instance.name}\nEmail: {instance.email}\n\nMensaje:\n{instance.content}",
+                subject=f"Nuevo mensaje de {data['name']}",
+                message=data['message'],
                 from_email=settings.EMAIL_HOST_USER,
-                recipient_list=[settings.EMAIL_HOST_USER], # Te lo envías a ti mismo
-                fail_silently=False,
+                recipient_list=[settings.EMAIL_HOST_USER],
+                fail_silently=False, # Ponlo en False para ver errores en los logs de Render
             )
             print("✅ Correo enviado con éxito")
         except Exception as e:
