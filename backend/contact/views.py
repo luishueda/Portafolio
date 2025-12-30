@@ -27,3 +27,4 @@ class ContactViewSet(viewsets.ModelViewSet):
             )
         except Exception as e:
             print(f"❌ Error al enviar correo: {e}")
+            #terminado
