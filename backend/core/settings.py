@@ -121,15 +121,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
-
-from django.db.models.signals import post_migrate
-from django.dispatch import receiver
-
-@receiver(post_migrate)
-def create_admin_user(sender, **kwargs):
-    from django.contrib.auth import get_user_model
-    User = get_user_model()
-    # Usaremos un nombre nuevo 'admin_root' para asegurar que se cree
-    if not User.objects.filter(username='admin_root').exists():
-        User.objects.create_superuser('admin_root', 'huedaluis72@gmail.com', 'Luis2025!')
-        print("SUPERUSUARIO CREADO: admin_root")
