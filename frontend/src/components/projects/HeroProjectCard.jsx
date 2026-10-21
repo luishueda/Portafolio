@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Github, ArrowRight, ArrowUpRight, ImageOff } from 'lucide-react';
+import { getContactPath, getSolutionPath } from '../../utils/projectRoutes';
 
 const HeroProjectCard = ({ project }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -13,7 +15,7 @@ const HeroProjectCard = ({ project }) => {
             transition={{ duration: 0.6 }}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
-            className="relative glass rounded-2xl overflow-hidden mb-16 group"
+            className="relative rounded-2xl overflow-hidden mb-16 group border border-white/10 bg-slate-950/50"
         >
             {/* Badge Proyecto Principal */}
             <div className="absolute top-6 left-6 z-10">
@@ -25,7 +27,7 @@ const HeroProjectCard = ({ project }) => {
             <div className="grid md:grid-cols-5 gap-0">
                 {/* Imagen - 60% */}
                 <div className="relative md:col-span-3 h-64 md:h-96 overflow-hidden bg-dark-light">
-                    <motion.img
+                    {project.image ? <motion.img
                         animate={{
                             scale: isHovered ? 1.1 : 1,
                             filter: isHovered ? 'brightness(1.1) saturate(1.2)' : 'brightness(1) saturate(1)',
@@ -34,7 +36,7 @@ const HeroProjectCard = ({ project }) => {
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover"
-                    />
+                    /> : <div role="img" aria-label={`Sin imagen disponible para ${project.title}`} className="flex h-full w-full items-center justify-center bg-slate-900 px-6 text-center text-sm text-slate-400"><ImageOff size={28} className="mr-3 text-emerald-400" aria-hidden="true" />Imagen no disponible</div>}
                     <div className="absolute inset-0 bg-gradient-to-r from-dark/60 via-transparent to-transparent" />
                 </div>
 
@@ -62,7 +64,8 @@ const HeroProjectCard = ({ project }) => {
                     </div>
 
                     {/* CTAs */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-wrap items-center gap-3">
+                        <Link to={getSolutionPath(project)} className="flex items-center gap-2 rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Ver solución <ArrowRight size={16} aria-hidden="true" /></Link>
                         {project.link_live && (
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
@@ -70,11 +73,15 @@ const HeroProjectCard = ({ project }) => {
                                 href={project.link_live}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 bg-accent text-dark font-semibold rounded-xl hover:bg-accent-light transition-colors glow-accent"
+                                className="flex items-center gap-2 rounded-xl bg-accent px-5 py-3 font-semibold text-dark transition-colors hover:bg-accent-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                             >
-                                Ver proyecto <ArrowUpRight size={18} />
+                                Probar demo <ArrowUpRight size={18} />
                             </motion.a>
                         )}
+
+                        <Link to={getContactPath(project)} className="flex items-center gap-2 rounded-xl border border-emerald-400/40 px-4 py-3 text-sm font-semibold text-emerald-300 transition hover:border-emerald-300 hover:bg-emerald-400/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                            Solicitar sistema similar <ArrowRight size={16} aria-hidden="true" />
+                        </Link>
 
                         {project.link_github && (
                             <motion.a
@@ -83,7 +90,8 @@ const HeroProjectCard = ({ project }) => {
                                 href={project.link_github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 border border-white/20 rounded-xl text-gray-400 hover:text-white hover:border-white/40 transition-all backdrop-blur-sm"
+                                aria-label={`Ver código de ${project.title} en GitHub`}
+                                className="rounded-xl border border-white/20 p-3 text-gray-400 transition-all hover:border-white/40 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                             >
                                 <Github size={20} />
                             </motion.a>

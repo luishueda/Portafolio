@@ -1,130 +1,58 @@
-import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react'; // Quitamos la importación de Star
+import { lazy, Suspense } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowDown, ArrowRight, BriefcaseBusiness } from 'lucide-react';
 import AnimatedTerminal from './AnimatedTerminal';
-import ParticleBackground from './ParticleBackground';
 import MagneticButton from '../ui/MagneticButton';
 import { PERSONAL_INFO } from '../../utils/constants';
 
+const ParticleBackground = lazy(() => import('./ParticleBackground'));
+
 const HeroSection = () => {
+    const shouldReduceMotion = useReducedMotion();
+    const reveal = (delay = 0) => ({
+        initial: shouldReduceMotion ? false : { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.55, delay },
+    });
+
     return (
-        // Padding-top ajustado para balance con navbar
-        <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-28">
+        <section id="inicio" className="relative flex min-h-screen scroll-mt-20 items-center overflow-hidden px-5 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-28">
+            <Suspense fallback={null}><ParticleBackground /></Suspense>
+            <div className="pointer-events-none absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl motion-safe:animate-pulse" />
+            <div className="pointer-events-none absolute bottom-12 right-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl motion-safe:animate-pulse" />
 
-            {/* Fondo de Partículas */}
-            <ParticleBackground />
-
-            {/* Orbes de luz de fondo */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-float"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
-
-            <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
-
-                {/* ============================================
-                   TÍTULO PRINCIPAL
-                ============================================ */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="font-display font-bold mb-6 leading-tight"
-                >
-                    <div className="text-4xl md:text-6xl lg:text-7xl mb-2">
-                        <span className="text-white">Hola, soy </span>
-
-                        <span className="relative inline-block">
-                            <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                                {PERSONAL_INFO.name}
-                            </span>
-                            {/* Subrayado */}
-                            <motion.div
-                                className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full"
-                                initial={{ scaleX: 0 }}
-                                animate={{ scaleX: 1 }}
-                                transition={{ duration: 0.8, delay: 1.3 }}
-                            />
-                        </span>
-                    </div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 1.5 }}
-                        className="text-3xl md:text-5xl lg:text-6xl text-gray-400 mt-2"
-                    >
+            <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+                <div className="max-w-3xl text-center lg:text-left">
+                    <motion.p {...reveal(0.1)} className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-sm font-medium text-emerald-200">
+                        <BriefcaseBusiness size={16} aria-hidden="true" />
                         {PERSONAL_INFO.role}
+                    </motion.p>
+
+                    <motion.h1 {...reveal(0.2)} className="font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+                        Desarrollo <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-emerald-300 bg-clip-text text-transparent">páginas web</span> y sistemas a medida para impulsar tu negocio.
+                    </motion.h1>
+
+                    <motion.p {...reveal(0.35)} className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg lg:mx-0">
+                        Transformo ideas y necesidades empresariales en soluciones digitales modernas, funcionales y adaptadas a cada proyecto.
+                    </motion.p>
+
+                    <motion.div {...reveal(0.5)} className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center lg:justify-start">
+                        <MagneticButton href="#contacto" primary className="w-full sm:w-auto">Solicitar cotización <ArrowRight size={17} aria-hidden="true" /></MagneticButton>
+                        <MagneticButton href="#proyectos" className="w-full sm:w-auto">Ver proyectos</MagneticButton>
                     </motion.div>
-                </motion.h1>
 
-                {/* ============================================
-                   DESCRIPCIÓN - ESLOGAN VENDEDOR
-                ============================================ */}
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.7 }}
-                    className="max-w-2xl mx-auto text-gray-400 text-base md:text-lg mb-10 leading-relaxed"
-                >
-                    Transformo ideas en activos digitales de <span className="text-white font-semibold">alto impacto</span>.
-                    Desarrollo soluciones web estratégicas diseñadas para potenciar el crecimiento y la eficiencia de tu negocio.
-                </motion.p>
+                    <motion.p {...reveal(0.65)} className="mt-6 text-sm text-slate-400">
+                        Desarrollo Full Stack con enfoque en experiencias claras, rendimiento y soluciones útiles.
+                    </motion.p>
+                </div>
 
-                {/* ============================================
-                   TERMINAL ANIMADO
-                ============================================ */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.9 }}
-                    className="mb-12"
-                >
-                    <AnimatedTerminal />
-                </motion.div>
-
-                {/* ============================================
-                   BOTONES CTA
-                ============================================ */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 2.1 }}
-                    className="flex gap-4 justify-center flex-wrap mb-16"
-                >
-                    <MagneticButton href="#proyectos" primary>
-                        Ver Trabajo
-                    </MagneticButton>
-                    <MagneticButton href="#contacto">
-                        Descargar CV
-                    </MagneticButton>
-                </motion.div>
-
-                {/* ============================================
-                   SCROLL INDICATOR
-                ============================================ */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2.3, duration: 0.6 }}
-                    className="flex flex-col items-center gap-2 text-gray-500"
-                >
-                    <span className="text-xs font-medium tracking-widest uppercase">Explorar</span>
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-                    >
-                        <ArrowDown size={20} className="text-emerald-400" />
-                    </motion.div>
-                </motion.div>
+                <motion.div {...reveal(0.35)} className="mx-auto w-full max-w-xl lg:max-w-none"><AnimatedTerminal /></motion.div>
             </div>
 
-            <style jsx>{`
-                .animate-gradient {
-                    animation: gradient 3s ease infinite;
-                }
-                @keyframes gradient {
-                    0%, 100% { background-position: 0% 50%; }
-                    50% { background-position: 100% 50%; }
-                }
-            `}</style>
+            <motion.a {...reveal(0.75)} href="#proyectos" aria-label="Explorar proyectos" className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 rounded-md text-xs font-medium uppercase tracking-[0.18em] text-slate-400 outline-none transition hover:text-emerald-300 focus-visible:ring-2 focus-visible:ring-emerald-400 md:flex">
+                Explorar
+                <ArrowDown size={18} className="animate-bounce text-emerald-400 motion-reduce:animate-none" aria-hidden="true" />
+            </motion.a>
         </section>
     );
 };

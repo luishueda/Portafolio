@@ -88,11 +88,12 @@ const About = () => {
                                     >
                                         <div className="w-40 h-40 rounded-3xl overflow-hidden border-2 border-emerald-500/30 group-hover:border-emerald-500 transition-all duration-500 shadow-xl shadow-emerald-500/20">
                                             <img
-                                                src="/images/profile.jpg"
+                                                src="/images/profile.webp"
                                                 alt="Luis Hueda"
                                                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                                                onError={(e) => {
-                                                    e.target.src = 'https://ui-avatars.com/api/?name=Luis+Hueda&size=160&background=10b981&color=fff&bold=true';
+                                                onError={(event) => {
+                                                    event.currentTarget.onerror = null;
+                                                    event.currentTarget.src = '/images/profile.jpg';
                                                 }}
                                             />
                                         </div>

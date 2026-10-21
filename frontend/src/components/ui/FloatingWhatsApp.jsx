@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
-import { PERSONAL_INFO } from '../../utils/constants';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
 
 const FloatingWhatsApp = () => {
-    const message = "Hola Luis, me interesa trabajar contigo en un proyecto.";
-    const whatsappUrl = `https://wa.me/${PERSONAL_INFO.whatsapp}?text=${encodeURIComponent(message)}`;
+    const message = 'Hola Luis, me interesa una solución web o sistema personalizado para mi negocio.';
+    const whatsappUrl = getWhatsAppUrl(message);
 
     return (
         <motion.a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Iniciar conversación por WhatsApp"
             className="fixed bottom-8 right-8 z-50 bg-accent text-dark p-4 rounded-full shadow-2xl hover:bg-accent-light transition-colors group"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

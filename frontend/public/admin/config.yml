@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images/projects
+public_folder: /images/projects
+
+collections:
+  - name: contenido
+    label: Proyectos
+    files:
+      - name: proyectos
+        label: Catálogo comercial
+        file: public/content/projects.json
+        fields:
+          - name: projects
+            label: Proyectos
+            widget: list
+            fields:
+              - { name: id, label: Identificador, widget: string, hint: "Usa minúsculas y guiones. No lo cambies después de publicar." }
+              - { name: title, label: Nombre comercial, widget: string }
+              - { name: description, label: Descripción, widget: text }
+              - { name: technologies, label: Tecnologías, widget: string, hint: "Ejemplo: PHP, MySQL, JavaScript" }
+              - { name: image, label: Imagen principal, widget: image }
+              - { name: link_live, label: URL de demo pública, widget: string, required: false, hint: "Déjalo vacío si la demo aún no está publicada." }
+              - { name: link_github, label: URL de GitHub, widget: string, required: false }
+              - { name: demo_status, label: Estado de demo, widget: string, required: false }
+              - name: caseStudy
+                label: Información comercial
+                widget: object
+                fields:
+                  - { name: purpose, label: Objetivo de la solución, widget: text }
+                  - name: capabilities
+                    label: Módulos principales
+                    widget: list
+                    field: { name: item, label: Módulo, widget: string }
+                  - name: workflow
+                    label: Flujo de trabajo
+                    widget: list
+                    field: { name: item, label: Paso, widget: string }
+                  - name: roles
+                    label: Perfiles de acceso
+                    widget: list
+                    field: { name: item, label: Perfil, widget: string }

@@ -32,5 +32,9 @@ Bienvenido a mi repositorio. Aquí encontrarás el código fuente de mi portafol
    - Instala paquetes: `npm install`
    - Inicia: `npm run dev`
 
+## Rutas del frontend
+
+El portafolio utiliza rutas del lado del cliente: `/`, `/servicios` y `/proyectos`. En producción, el hosting estático debe redirigir las rutas no encontradas a `index.html` para que React Router pueda resolverlas al recargar directamente una página interna. Esta configuración debe realizarse en el proveedor de hosting; no forma parte del código de la aplicación.
+
 ---
 💻 Desarrollado por [Luis Hueda](https://linkedin.com/in/tu-perfil)

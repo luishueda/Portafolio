@@ -1,11 +1,23 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
 const ParticleBackground = () => {
+    const [reduceMotion, setReduceMotion] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const updatePreference = () => setReduceMotion(mediaQuery.matches);
+        updatePreference();
+        mediaQuery.addEventListener('change', updatePreference);
+        return () => mediaQuery.removeEventListener('change', updatePreference);
+    }, []);
+
     const particlesInit = useCallback(async (engine) => {
         await loadSlim(engine);
     }, []);
+
+    if (reduceMotion) return null;
 
     return (
         <Particles
@@ -17,7 +29,7 @@ const ParticleBackground = () => {
                         value: "transparent",
                     },
                 },
-                fpsLimit: 60,
+                fpsLimit: 45,
                 interactivity: {
                     events: {
                         onHover: {
@@ -61,7 +73,7 @@ const ParticleBackground = () => {
                             enable: true,
                             area: 800,
                         },
-                        value: 50,
+                        value: 36,
                     },
                     opacity: {
                         value: 0.3,

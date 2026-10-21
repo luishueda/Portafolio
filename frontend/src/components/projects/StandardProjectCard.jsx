@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ExternalLink, Github, ImageOff } from 'lucide-react';
+import { getContactPath, getSolutionPath } from '../../utils/projectRoutes';
 
 const StandardProjectCard = ({ project }) => {
     return (
@@ -10,11 +12,12 @@ const StandardProjectCard = ({ project }) => {
         >
             {/* Imagen compacta */}
             <div className="relative h-44 overflow-hidden bg-dark-light">
-                <img
+                {project.image ? <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                /> : <div role="img" aria-label={`Sin imagen disponible para ${project.title}`} className="flex h-full w-full items-center justify-center bg-slate-900 px-5 text-center text-xs text-slate-400"><ImageOff size={22} className="mr-2 text-emerald-400" aria-hidden="true" />Imagen no disponible</div>}
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
             </div>
 
@@ -42,7 +45,8 @@ const StandardProjectCard = ({ project }) => {
                 </div>
 
                 {/* Links minimalistas */}
-                <div className="flex items-center gap-4 text-gray-400">
+                <div className="flex flex-wrap items-center gap-4 text-gray-400">
+                    <Link to={getSolutionPath(project)} className="inline-flex items-center gap-1 text-xs font-semibold text-white transition hover:text-emerald-200 focus-visible:rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">Ver solución <ArrowRight size={14} aria-hidden="true" /></Link>
                     {project.link_github && (
                         <a
                             href={project.link_github}
@@ -60,9 +64,12 @@ const StandardProjectCard = ({ project }) => {
                             rel="noopener noreferrer"
                             className="flex items-center gap-1 text-xs font-medium hover:text-accent transition-colors"
                         >
-                            Demo <ExternalLink size={14} />
+                            Probar demo <ExternalLink size={14} />
                         </a>
                     )}
+                    <Link to={getContactPath(project)} className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-300 transition hover:text-emerald-200 focus-visible:rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
+                        Sistema similar <ArrowRight size={14} aria-hidden="true" />
+                    </Link>
                 </div>
             </div>
         </motion.div>

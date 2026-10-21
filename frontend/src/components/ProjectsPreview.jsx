@@ -1,0 +1,7 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import ProjectsCatalog from './projects/ProjectsCatalog';
+
+const ProjectsPreview = () => <section id="proyectos" className="scroll-mt-20 px-6 py-24"><div className="mx-auto max-w-7xl"><div className="mb-12 flex flex-col items-start justify-between gap-5 md:flex-row md:items-end"><div><p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Catálogo de proyectos</p><h2 className="mb-3 text-4xl font-bold text-white md:text-5xl">Proyectos y <span className="bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">soluciones desarrolladas</span></h2><div className="h-1 w-20 rounded-full bg-gradient-to-r from-accent to-accent-light" /></div><p className="max-w-md text-sm leading-relaxed text-gray-400 md:text-base">Explora algunos trabajos y demostraciones. Cada proyecto puede ser el punto de partida para una solución adaptada a tu negocio.</p></div><ProjectsCatalog preview /><div className="mt-10 text-center"><Link to="/proyectos" className="inline-flex items-center gap-2 rounded-lg border border-emerald-400/40 px-5 py-3 text-sm font-semibold text-emerald-300 transition hover:border-emerald-300 hover:bg-emerald-400/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Explorar todos los proyectos <ArrowRight size={17} aria-hidden="true" /></Link></div></div></section>;
+
+export default ProjectsPreview;

@@ -4,4 +4,13 @@ from .models import Project
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = '__all__' # Esto envía todos los campos (id, título, imagen, etc.)
+        # Only fields rendered by the public portfolio are exposed by the API.
+        fields = (
+            'id',
+            'title',
+            'description',
+            'technologies',
+            'image',
+            'link_github',
+            'link_live',
+        )

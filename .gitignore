@@ -1,6 +1,7 @@
 # Entornos virtuales
 venv/
 .venv/
+.venv-test/
 env/
 
 # Variables de entorno (Secretos)
