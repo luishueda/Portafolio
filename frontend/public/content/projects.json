@@ -90,7 +90,7 @@
     {
       "link_github": "",
       "technologies": "PHP, MySQL, HTML, CSS",
-      "demo_status": "Demo pública en preparación",
+      "demo_status": "Demo pública disponible",
       "link_live": "https://jdabogados.infinityfreeapp.com/login.php",
       "title": "Suite de Gestión para Estudio Jurídico",
       "caseStudy": {
@@ -119,8 +119,8 @@
     {
       "link_github": "",
       "technologies": "PHP, MySQL, HTML, CSS",
-      "demo_status": "Demo pública en preparación",
-      "link_live": "",
+      "demo_status": "Demo pública disponible",
+      "link_live": "https://teque2026.infinityfreeapp.com/",
       "title": "Plataforma de Participación y Gestión Territorial",
       "caseStudy": {
         "purpose": "Centraliza la organización de participación, recursos, encuestas y zonas para una campaña local.",
@@ -177,8 +177,8 @@
     {
       "link_github": "",
       "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
-      "demo_status": "Demo pública en preparación",
-      "link_live": "",
+      "demo_status": "Demo pública disponible",
+      "link_live": "https://rumayimports.infinityfreeapp.com/index.html",
       "title": "Plataforma de Logística e Importaciones",
       "caseStudy": {
         "purpose": "Agrupa operaciones de mercadería e importación para facilitar el seguimiento logístico.",
@@ -235,8 +235,8 @@
     {
       "link_github": "",
       "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
-      "demo_status": "Demo pública en preparación",
-      "link_live": "",
+      "demo_status": "Demo pública disponible",
+      "link_live": "https://salondebelleza.infinityfreeapp.com/modules/auth/login.php",
       "title": "Plataforma de Gestión para Salón de Belleza",
       "caseStudy": {
         "purpose": "Facilita la organización de una estética al reunir citas, clientes, servicios, productos y finanzas.",
