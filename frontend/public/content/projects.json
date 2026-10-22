@@ -1,148 +1,265 @@
 {
   "projects": [
     {
-      "id": "comedor-social",
-      "title": "Gestión Integral de Comedor Social",
-      "description": "Sistema para la gestión de beneficiarios, raciones, inventario y caja de un comedor.",
-      "technologies": "PHP, MySQL, HTML, CSS",
-      "image": "/images/projects/comedor-social.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "",
+      "title": "Gestión Integral de Comedor Social",
       "caseStudy": {
         "purpose": "Centraliza la atención diaria de un comedor, desde el registro de beneficiarios hasta el control de insumos y caja.",
-        "capabilities": ["Registro de beneficiarios y raciones", "Control de inventario e insumos", "Movimientos de caja", "Consulta de operaciones diarias"],
-        "workflow": ["Registrar atención", "Descontar ración e insumos", "Revisar caja y existencias"],
-        "roles": ["Administración", "Encargado de cocina", "Responsable de caja"]
-      }
+        "capabilities": [
+          "Registro de beneficiarios y raciones",
+          "Control de inventario e insumos",
+          "Movimientos de caja",
+          "Consulta de operaciones diarias"
+        ],
+        "workflow": [
+          "Registrar atención",
+          "Descontar ración e insumos",
+          "Revisar caja y existencias"
+        ],
+        "roles": [
+          "Administración",
+          "Encargado de cocina",
+          "Responsable de caja"
+        ]
+      },
+      "id": "comedor-social",
+      "image": "/images/projects/comedor-social.webp",
+      "description": "Sistema para la gestión de beneficiarios, raciones, inventario y caja de un comedor."
     },
     {
-      "id": "inventario-operaciones",
-      "title": "Control de Inventario y Operaciones",
-      "description": "Sistema de inventario con módulos de productos, movimientos, proveedores, órdenes de compra y reportes.",
-      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
-      "image": "/images/projects/inventario.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "",
+      "title": "Control de Inventario y Operaciones",
       "caseStudy": {
         "purpose": "Organiza el stock y los movimientos de productos para tener visibilidad de compras, proveedores y existencias.",
-        "capabilities": ["Catálogo de productos y categorías", "Entradas y salidas de almacén", "Proveedores y órdenes de compra", "Reportes de inventario"],
-        "workflow": ["Registrar compra", "Actualizar existencias", "Consultar movimientos y reportes"],
-        "roles": ["Administrador", "Encargado de almacén", "Compras"]
-      }
+        "capabilities": [
+          "Catálogo de productos y categorías",
+          "Entradas y salidas de almacén",
+          "Proveedores y órdenes de compra",
+          "Reportes de inventario"
+        ],
+        "workflow": [
+          "Registrar compra",
+          "Actualizar existencias",
+          "Consultar movimientos y reportes"
+        ],
+        "roles": [
+          "Administrador",
+          "Encargado de almacén",
+          "Compras"
+        ]
+      },
+      "id": "inventario-operaciones",
+      "image": "/images/projects/inventario.webp",
+      "description": "Sistema de inventario con módulos de productos, movimientos, proveedores, órdenes de compra y reportes."
     },
     {
-      "id": "tienda-moda",
-      "title": "Plataforma de Gestión para Tienda de Moda",
-      "description": "Sistema interno de ventas e inventario para una tienda de ropa.",
-      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
-      "image": "/images/projects/tienda-ropa.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "",
+      "title": "Plataforma de Gestión para Tienda de Moda",
       "caseStudy": {
         "purpose": "Reúne ventas, productos y control de prendas para una operación minorista de ropa.",
-        "capabilities": ["Productos y variantes de prendas", "Control de ventas", "Inventario por producto", "Seguimiento de existencias"],
-        "workflow": ["Registrar producto", "Realizar venta", "Actualizar stock disponible"],
-        "roles": ["Administrador", "Vendedor", "Encargado de inventario"]
-      }
+        "capabilities": [
+          "Productos y variantes de prendas",
+          "Control de ventas",
+          "Inventario por producto",
+          "Seguimiento de existencias"
+        ],
+        "workflow": [
+          "Registrar producto",
+          "Realizar venta",
+          "Actualizar stock disponible"
+        ],
+        "roles": [
+          "Administrador",
+          "Vendedor",
+          "Encargado de inventario"
+        ]
+      },
+      "id": "tienda-moda",
+      "image": "/images/projects/tienda-ropa.webp",
+      "description": "Sistema interno de ventas e inventario para una tienda de ropa."
     },
     {
-      "id": "estudio-juridico",
-      "title": "Suite de Gestión para Estudio Jurídico",
-      "description": "Sistema para un estudio jurídico con agenda, casos, pagos y juzgados.",
-      "technologies": "PHP, MySQL, HTML, CSS",
-      "image": "/images/projects/estudio-juridico.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "https://jdabogados.infinityfreeapp.com/login.php",
+      "title": "Suite de Gestión para Estudio Jurídico",
       "caseStudy": {
         "purpose": "Ayuda a ordenar la información operativa de un estudio jurídico: casos, agenda, juzgados y pagos.",
-        "capabilities": ["Registro y seguimiento de casos", "Agenda de actividades", "Gestión de juzgados", "Control de pagos y archivos"],
-        "workflow": ["Crear expediente", "Programar actividad", "Actualizar el estado del caso"],
-        "roles": ["Administrador", "Abogado", "Asistente legal"]
-      }
+        "capabilities": [
+          "Registro y seguimiento de casos",
+          "Agenda de actividades",
+          "Gestión de juzgados",
+          "Control de pagos y archivos"
+        ],
+        "workflow": [
+          "Crear expediente",
+          "Programar actividad",
+          "Actualizar el estado del caso"
+        ],
+        "roles": [
+          "Administrador",
+          "Abogado",
+          "Asistente legal"
+        ]
+      },
+      "id": "estudio-juridico",
+      "image": "/images/projects/estudio-juridico.webp",
+      "description": "Sistema para un estudio jurídico con agenda, casos, pagos y juzgados."
     },
     {
-      "id": "participacion-territorial",
-      "title": "Plataforma de Participación y Gestión Territorial",
-      "description": "Sitio y sistema con módulos de encuestas, participación, recursos, simpatizantes y zonas.",
-      "technologies": "PHP, MySQL, HTML, CSS",
-      "image": "/images/projects/campana-municipal.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "",
+      "title": "Plataforma de Participación y Gestión Territorial",
       "caseStudy": {
         "purpose": "Centraliza la organización de participación, recursos, encuestas y zonas para una campaña local.",
-        "capabilities": ["Registro de simpatizantes", "Encuestas y participación", "Organización por zonas", "Gestión de recursos"],
-        "workflow": ["Registrar actividad", "Clasificar por zona", "Consultar información recopilada"],
-        "roles": ["Coordinación", "Equipo de campo", "Administrador"]
-      }
+        "capabilities": [
+          "Registro de simpatizantes",
+          "Encuestas y participación",
+          "Organización por zonas",
+          "Gestión de recursos"
+        ],
+        "workflow": [
+          "Registrar actividad",
+          "Clasificar por zona",
+          "Consultar información recopilada"
+        ],
+        "roles": [
+          "Coordinación",
+          "Equipo de campo",
+          "Administrador"
+        ]
+      },
+      "id": "participacion-territorial",
+      "image": "/images/projects/campana-municipal.webp",
+      "description": "Sitio y sistema con módulos de encuestas, participación, recursos, simpatizantes y zonas."
     },
     {
-      "id": "clinica-veterinaria",
-      "title": "Sistema Integral para Clínica Veterinaria",
-      "description": "Sistema con módulos de citas, clientes, mascotas, inventario, vacunas, caja y estética.",
-      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
-      "image": "/images/projects/veterinaria.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "",
+      "title": "Sistema Integral para Clínica Veterinaria",
       "caseStudy": {
         "purpose": "Organiza la atención de una veterinaria integrando pacientes, agenda, servicios, inventario y caja.",
-        "capabilities": ["Citas y fichas de mascotas", "Vacunas y servicios", "Inventario de productos", "Caja y estética"],
-        "workflow": ["Registrar mascota", "Agendar atención", "Cobrar servicio y actualizar stock"],
-        "roles": ["Administrador", "Recepción", "Veterinario"]
-      }
+        "capabilities": [
+          "Citas y fichas de mascotas",
+          "Vacunas y servicios",
+          "Inventario de productos",
+          "Caja y estética"
+        ],
+        "workflow": [
+          "Registrar mascota",
+          "Agendar atención",
+          "Cobrar servicio y actualizar stock"
+        ],
+        "roles": [
+          "Administrador",
+          "Recepción",
+          "Veterinario"
+        ]
+      },
+      "id": "clinica-veterinaria",
+      "image": "/images/projects/veterinaria.webp",
+      "description": "Sistema con módulos de citas, clientes, mascotas, inventario, vacunas, caja y estética."
     },
     {
-      "id": "logistica-importaciones",
-      "title": "Plataforma de Logística e Importaciones",
-      "description": "Sistema de importaciones y logística para el seguimiento de mercadería.",
-      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
-      "image": "/images/projects/mercaderia.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "",
+      "title": "Plataforma de Logística e Importaciones",
       "caseStudy": {
         "purpose": "Agrupa operaciones de mercadería e importación para facilitar el seguimiento logístico.",
-        "capabilities": ["Registro de mercadería", "Seguimiento de operaciones", "Control de movimientos", "Consulta de información logística"],
-        "workflow": ["Registrar ingreso", "Actualizar movimiento", "Consultar estado de mercadería"],
-        "roles": ["Administrador", "Operaciones", "Almacén"]
-      }
+        "capabilities": [
+          "Registro de mercadería",
+          "Seguimiento de operaciones",
+          "Control de movimientos",
+          "Consulta de información logística"
+        ],
+        "workflow": [
+          "Registrar ingreso",
+          "Actualizar movimiento",
+          "Consultar estado de mercadería"
+        ],
+        "roles": [
+          "Administrador",
+          "Operaciones",
+          "Almacén"
+        ]
+      },
+      "id": "logistica-importaciones",
+      "image": "/images/projects/mercaderia.webp",
+      "description": "Sistema de importaciones y logística para el seguimiento de mercadería."
     },
     {
-      "id": "gestion-botica",
-      "title": "Sistema Integral de Gestión para Botica",
-      "description": "Sistema de botica con módulos de caja, inventario, ventas, usuarios y dashboard.",
-      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
-      "image": "/images/projects/botica.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "",
+      "title": "Sistema Integral de Gestión para Botica",
       "caseStudy": {
         "purpose": "Concentra la operación de una botica para controlar ventas, productos, existencias y usuarios.",
-        "capabilities": ["Punto de venta y caja", "Inventario de productos", "Gestión de usuarios", "Panel de consulta operativa"],
-        "workflow": ["Registrar venta", "Descontar existencias", "Revisar la operación desde el panel"],
-        "roles": ["Administrador", "Cajero", "Encargado de inventario"]
-      }
+        "capabilities": [
+          "Punto de venta y caja",
+          "Inventario de productos",
+          "Gestión de usuarios",
+          "Panel de consulta operativa"
+        ],
+        "workflow": [
+          "Registrar venta",
+          "Descontar existencias",
+          "Revisar la operación desde el panel"
+        ],
+        "roles": [
+          "Administrador",
+          "Cajero",
+          "Encargado de inventario"
+        ]
+      },
+      "id": "gestion-botica",
+      "image": "/images/projects/botica.webp",
+      "description": "Sistema de botica con módulos de caja, inventario, ventas, usuarios y dashboard."
     },
     {
-      "id": "salon-belleza",
-      "title": "Plataforma de Gestión para Salón de Belleza",
-      "description": "Sistema con módulos de citas, clientes, servicios, inventario, finanzas y cierre de caja.",
-      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
-      "image": "/images/projects/salon-belleza.webp",
       "link_github": "",
-      "link_live": "",
+      "technologies": "PHP, MySQL, JavaScript, HTML, CSS",
       "demo_status": "Demo pública en preparación",
+      "link_live": "",
+      "title": "Plataforma de Gestión para Salón de Belleza",
       "caseStudy": {
         "purpose": "Facilita la organización de una estética al reunir citas, clientes, servicios, productos y finanzas.",
-        "capabilities": ["Agenda de citas", "Clientes y servicios", "Inventario de productos", "Caja y cierre diario"],
-        "workflow": ["Reservar cita", "Registrar servicio", "Cerrar operación del día"],
-        "roles": ["Administrador", "Recepción", "Especialista"]
-      }
+        "capabilities": [
+          "Agenda de citas",
+          "Clientes y servicios",
+          "Inventario de productos",
+          "Caja y cierre diario"
+        ],
+        "workflow": [
+          "Reservar cita",
+          "Registrar servicio",
+          "Cerrar operación del día"
+        ],
+        "roles": [
+          "Administrador",
+          "Recepción",
+          "Especialista"
+        ]
+      },
+      "id": "salon-belleza",
+      "image": "/images/projects/salon-belleza.webp",
+      "description": "Sistema con módulos de citas, clientes, servicios, inventario, finanzas y cierre de caja."
     }
   ]
 }
