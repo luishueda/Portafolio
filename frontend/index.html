@@ -14,6 +14,14 @@
     <title>Luis Hueda | Desarrollo web y sistemas personalizados</title>
   </head>
   <body>
+    <script>
+      // Netlify Identity sends invitation and password-recovery links to the site URL.
+      // Forward their one-time hash token to Decap CMS, where the Identity widget can handle it.
+      const identityHash = window.location.hash;
+      if (/(invite_token|recovery_token|confirmation_token)/.test(identityHash)) {
+        window.location.replace(`/admin/${identityHash}`);
+      }
+    </script>
     <div id="root"></div>
     <form name="cotizacion" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input name="bot-field" />
