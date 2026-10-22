@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: public/images/projects
+media_folder: frontend/public/images/projects
 public_folder: /images/projects
 
 collections:
@@ -12,7 +12,7 @@ collections:
     files:
       - name: proyectos
         label: Catálogo comercial
-        file: public/content/projects.json
+        file: frontend/public/content/projects.json
         fields:
           - name: projects
             label: Proyectos
